@@ -15,10 +15,7 @@
           text-align: center;
           padding-top: 100px;
         }
-        h1 {
-          font-size: 2.5rem;
-          color: yellow;
-        }
+    
         button {
           font-size: 1.2rem;
           padding: 15px 30px;
@@ -27,37 +24,83 @@
           border-radius: 10px;
           cursor: pointer;
         }
+    
         .alertar {
           background-color: red;
           color: white;
         }
+    
+        /* Modal de alerta */
+        #alertaModal {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.9);
+          z-index: 9999;
+          justify-content: center;
+          align-items: center;
+        }
+    
+        .alerta-content {
+          background-color: darkred;
+          color: yellow;
+          padding: 40px;
+          border: 5px solid yellow;
+          border-radius: 15px;
+          font-size: 2rem;
+          text-align: center;
+          box-shadow: 0 0 20px red;
+          animation: pulse 1s infinite;
+        }
+    
         .parar {
+          margin-top: 30px;
           background-color: gray;
           color: white;
+        }
+    
+        @keyframes pulse {
+          0% { box-shadow: 0 0 20px red; }
+          50% { box-shadow: 0 0 40px yellow; }
+          100% { box-shadow: 0 0 20px red; }
         }
     </style>
 </head>
 <body>
-<h1>🚨 MURIBECA ESTÁ INVISÍVEL 🚨</h1>
+
 <button class="alertar" onclick="tocarAlarme()">🔊 ALERTAR KENOBYS</button>
-<button class="parar" onclick="pararAlarme()">🔇 PARAR ALARME</button>
 
 <audio id="somAlarme" src="alarme.mp3" preload="auto"></audio>
 
+<!-- Modal de alerta -->
+<div id="alertaModal">
+    <div class="alerta-content">
+        ⚠ MURIBECA ESTÁ INVISÍVEL ⚠
+        <br>
+        <button class="parar" onclick="pararAlarme()">🔇 PARAR ALARME</button>
+    </div>
+</div>
+
 <script>
     const som = document.getElementById('somAlarme');
-
+    const alertaModal = document.getElementById('alertaModal');
+  
     function tocarAlarme() {
       som.loop = true;
       som.play();
-      alert("⚠ MURIBECA ESTÁ INVISÍVEL ⚠");
+      alertaModal.style.display = 'flex';
     }
-
+  
     function pararAlarme() {
       som.pause();
       som.currentTime = 0;
+      alertaModal.style.display = 'none';
     }
 </script>
+
 </body>
 </html>
 </title>
