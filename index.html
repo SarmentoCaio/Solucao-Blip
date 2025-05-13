@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+        <html lang="pt-br">
+        <head>
+        <meta charset="UTF-8">
+        <title>Alerta Muribeca</title>
+    <style>
+        body {
+          background-color: black;
+          color: white;
+          font-family: sans-serif;
+          text-align: center;
+          padding-top: 100px;
+        }
+        h1 {
+          font-size: 2.5rem;
+          color: yellow;
+        }
+        button {
+          font-size: 1.2rem;
+          padding: 15px 30px;
+          margin: 10px;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+        .alertar {
+          background-color: red;
+          color: white;
+        }
+        .parar {
+          background-color: gray;
+          color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>🚨 MURIBECA ESTÁ INVISÍVEL 🚨</h1>
+<button class="alertar" onclick="tocarAlarme()">🔊 ALERTAR KENOBYS</button>
+<button class="parar" onclick="pararAlarme()">🔇 PARAR ALARME</button>
+
+<audio id="somAlarme" src="alarme.mp3" preload="auto"></audio>
+
+<script>
+    const som = document.getElementById('somAlarme');
+
+    function tocarAlarme() {
+      som.loop = true;
+      som.play();
+      alert("⚠ MURIBECA ESTÁ INVISÍVEL ⚠");
+    }
+
+    function pararAlarme() {
+      som.pause();
+      som.currentTime = 0;
+    }
+</script>
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>
